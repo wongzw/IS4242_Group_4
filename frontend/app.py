@@ -27,11 +27,14 @@ mphands = mp.solutions.hands
 hand = mphands.Hands(static_image_mode =True, max_num_hands =2, min_detection_confidence=0.75)
 mpdraw = mp.solutions.drawing_utils
 image = Image.open('./assets/legend.jpeg')
+header = Image.open('./assets/header.png')
  
 st.set_page_config(layout="centered")
-st.title(" ✌️ Real Time Sign Language Detection 🤟")
-# st.header("Gesture Model")
-st.subheader("☑ Tick the checkbox 'Run' to start detecting and ☐ uncheck to stop.")
+st.image(header)
+# st.title("  ✌️Real Time Sign Language Detection 🤟")
+st.title(" Real Time Sign Language Detection ")
+st.subheader(":orange[ ☑ Tick the checkbox 'Run' below to start detecting and ☐ uncheck to stop.]")
+
 models = ["CNN", "SVM", "KNN"]
 choice = st.sidebar.selectbox("Select model to use.", models)
 st.sidebar.title("Guide")
