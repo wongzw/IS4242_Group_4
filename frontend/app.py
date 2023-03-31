@@ -23,11 +23,14 @@ import cv2
 import numpy as np
 import os
 import mediapipe as mp
+
 mphands = mp.solutions.hands
 hand = mphands.Hands(static_image_mode =True, max_num_hands =2, min_detection_confidence=0.75)
 mpdraw = mp.solutions.drawing_utils
-image = Image.open('./assets/legend.jpeg')
-header = Image.open('./assets/header.png')
+script_dir = os.path.dirname(__file__)
+# image = Image.open('./assets/legend.jpeg')
+image = Image.open(os.path.join(script_dir, 'assets/legend.jpeg'))
+header = Image.open(os.path.join(script_dir, 'assets/header.png'))
  
 st.set_page_config(layout="centered")
 st.image(header)
@@ -40,23 +43,22 @@ choice = st.sidebar.selectbox("Select model to use.", models)
 st.sidebar.title("Guide")
 st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True)
 
-
-
-
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
-
 
 # Initialize mediapipe hand
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
-knn_model = joblib.load('./saved_models/knn.joblib')
-svm_model = joblib.load('./saved_models/svm.joblib')
-cnn_model = keras.models.load_model('./saved_models/cnn.h5')
+# knn_model = joblib.load('./saved_models/knn.joblib')
+# svm_model = joblib.load('./saved_models/svm.joblib')
+# cnn_model = keras.models.load_model('./saved_models/cnn.h5')
+knn_model = joblib.load(os.path.join(script_dir, 'saved_models/knn.joblib'))
+svm_model = joblib.load(os.path.join(script_dir, 'saved_models/svm.joblib'))
+cnn_model = keras.models.load_model(os.path.join(script_dir, 'saved_models/cnn.h5'))
 
-scaler = joblib.load('./saved_models/standard_scaler.pkl')
-
+# scaler = joblib.load('./saved_models/standard_scaler.pkl')
+scaler = joblib.load(os.path.join(script_dir, 'saved_models/standard_scaler.pkl'))
 
 run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
