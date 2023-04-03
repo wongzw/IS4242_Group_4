@@ -35,13 +35,13 @@ header = Image.open(os.path.join(script_dir, 'assets/header.png'))
 st.set_page_config(layout="centered")
 st.image(header)
 # st.title("  ✌️Real Time Sign Language Detection 🤟")
-st.title(" Real Time Sign Language Detection ")
-st.subheader(":orange[ ☑ Tick the checkbox 'Run' below to start detecting and ☐ uncheck to stop.]")
-
+st.title(" :orange[ Real Time Sign Language Detection] ")
 models = ["CNN", "SVM", "KNN"]
-choice = st.sidebar.selectbox("Select model to use.", models)
+choice = st.selectbox("Select model to use.", models)
+st.text("Tick ☑ the checkbox 'Run' below to start detecting and uncheck ☐ to stop.")
+
 st.sidebar.title("Guide")
-st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True)
+st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True) #replace this with updated image with motion based letters crossed out.
 
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
@@ -123,7 +123,7 @@ while run:
             if len(target) > 0:
               # print(landmarks.landmark)
 
-              #here switch to different models
+              # here switch to different models
               # coords = [list(np.array([[landmark.x, landmark.y] for landmark in landmarks.landmark]).flatten())]
               coords = process_landmarks(choice, landmarks.landmark)
               # coords = scaler.transform([coords])
@@ -136,7 +136,7 @@ while run:
 
               #Show text predicted
               # cv2.putText(frame, (all_alphabets[int(predicted[0])]).upper() + " ", (80, 80), cv2.FONT_ITALIC, 2, (255, 100, 100), 2)
-              cv2.putText(frame, process_output(choice, predicted), (80, 80), cv2.FONT_ITALIC, 2, (255, 100, 100), 2)
+              cv2.putText(frame, process_output(choice, predicted), (80, 80), cv2.FONT_ITALIC, 2, (255, 191, 0), 4)
 
 
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
