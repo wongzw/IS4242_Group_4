@@ -41,7 +41,7 @@ choice = st.selectbox("Select model to use.", models)
 st.text("Tick ☑ the checkbox 'Run' below to start detecting and uncheck ☐ to stop.")
 
 st.sidebar.title("Guide")
-st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True) #replace this with updated image with motion based letters crossed out.
+st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True)
 
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']

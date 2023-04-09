@@ -14,27 +14,33 @@ mpdraw = mp.solutions.drawing_utils
 script_dir = os.path.dirname(__file__)
 # image = Image.open('./assets/legend.jpeg')
 image = Image.open(os.path.join(script_dir, '../assets/legend.jpeg'))
-header = Image.open(os.path.join(script_dir, '../assets/header.png'))
+header = Image.open(os.path.join(script_dir, '../assets/signlingo-header.png'))
 logo = Image.open(os.path.join(script_dir, '../assets/signlingo.png'))
 resized_logo = logo.resize((150, 150))
  
 st.set_page_config(layout="centered")
-# st.image(header)
+st.image(header)
 # st.title("  ✌️Real Time Sign Language Detection 🤟")
-st.image(resized_logo)
-st.title(" :orange[ Signlingo Alphabets Game] ")
-models = ["CNN", "SVM", "KNN"]
-choice = st.selectbox("Select model to use.", models)
+# st.image(resized_logo)
+st.title(" :orange[ Sign Language Alphabets Game] ")
+# models = ["CNN", "SVM", "KNN"]
+# choice = st.selectbox("Select model to use.", models)
+choice = "CNN"
+st.subheader("Instructions")
+st.text("This game is to help you learn the Singapore Sign Language alphabets.")
+st.text("Try gesturing the alphabet displayed and check if you are right or wrong.")
+st.text("You can shuffle if the letter is too hard for you.")
 st.text("Tick ☑ the checkbox 'Play' below to start playing the game and uncheck ☐ to stop.")
 
 st.sidebar.title("Guide")
-st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True) #replace this with updated image with motion based letters crossed out.
+st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True)
 
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
+quiz_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 'u', 'v', 'w', 'x', 'y']
 
 def random_alphabet():
-  return all_alphabets[np.random.randint(0, len(all_alphabets))]
+  return quiz_alphabets[np.random.randint(0, len(quiz_alphabets))]
 
 if('current_alphabet' not in st.session_state):
   st.session_state['current_alphabet'] = random_alphabet()
@@ -44,13 +50,12 @@ mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 knn_model = joblib.load(os.path.join(script_dir, '../saved_models/knn.joblib'))
 svm_model = joblib.load(os.path.join(script_dir, '../saved_models/svm.joblib'))
-# cnn_model = keras.models.load_model(os.path.join(script_dir, '../saved_models/cnn.h5'))
-cnn_model = keras.models.load_model(os.path.join(script_dir, '../saved_models/custom.h5'))
+cnn_model = keras.models.load_model(os.path.join(script_dir, '../saved_models/cnn.h5'))
 
 # scaler = joblib.load('./saved_models/standard_scaler.pkl')
 scaler = joblib.load(os.path.join(script_dir, '../saved_models/standard_scaler.pkl'))
 
-run = st.checkbox('Play the game!')
+run = st.checkbox('👈 Play the game!')
 FRAME_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
 
@@ -163,7 +168,7 @@ if run is True and shuffleButton:
 
 
 if run is True:
-  st.write("Current Alphabet: ", st.session_state['current_alphabet'].upper())
+  st.write("🚩 Current Alphabet: ", st.session_state['current_alphabet'].upper())
 
 
 while run:
@@ -203,5 +208,5 @@ while run:
 
 
 else:
-    st.write('Stopped')
+    st.write('🛑 Game is stopped!')
     camera.release()
