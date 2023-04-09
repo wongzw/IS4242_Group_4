@@ -60,7 +60,7 @@ cnn_model = keras.models.load_model(os.path.join(script_dir, 'saved_models/cnn.h
 # scaler = joblib.load('./saved_models/standard_scaler.pkl')
 scaler = joblib.load(os.path.join(script_dir, 'saved_models/standard_scaler.pkl'))
 
-run = st.checkbox('Run')
+run = st.checkbox(' 👈 Run')
 FRAME_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
 
