@@ -35,7 +35,7 @@ header = Image.open(os.path.join(script_dir, 'assets/header.png'))
 st.set_page_config(layout="centered")
 st.image(header)
 # st.title("  ✌️Real Time Sign Language Detection 🤟")
-st.title(" :orange[ Real Time Sign Language Detection Playground] ")
+st.title(" :orange[ Real Time Sign Language Detection] ")
 models = ["CNN", "SVM", "KNN"]
 choice = st.selectbox("Select model to use.", models)
 st.text("Tick ☑ the checkbox 'Run' below to start detecting and uncheck ☐ to stop.")
