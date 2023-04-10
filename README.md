@@ -2,9 +2,12 @@
 
 ## Installation
 
-Install the necessary packages.
+Install the necessary packages by run the following command in the terminal
+
+`pip install -r requirements.txt`
 
 To run the app, use command
+
 `streamlit run frontend/app.py`
 
 ## Folders and files
