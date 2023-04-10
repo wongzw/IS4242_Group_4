@@ -128,6 +128,7 @@ while run:
               coords = process_landmarks(choice, landmarks.landmark)
               # coords = scaler.transform([coords])
               chosen_model = load_model(choice)
+              # st.write(chosen_model.shape)
               predicted = chosen_model.predict(coords)
               print(predicted)
               
