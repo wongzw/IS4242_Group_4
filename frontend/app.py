@@ -35,13 +35,13 @@ header = Image.open(os.path.join(script_dir, 'assets/header.png'))
 st.set_page_config(layout="centered")
 st.image(header)
 # st.title("  ✌️Real Time Sign Language Detection 🤟")
-st.title(" :orange[ Real Time Sign Language Detection] ")
+st.title(" :orange[ Real Time Sign Language Detection Playground] ")
 models = ["CNN", "SVM", "KNN"]
 choice = st.selectbox("Select model to use.", models)
 st.text("Tick ☑ the checkbox 'Run' below to start detecting and uncheck ☐ to stop.")
 
 st.sidebar.title("Guide")
-st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True) #replace this with updated image with motion based letters crossed out.
+st.sidebar.image(image, caption='Singapore Sign Language Guide', use_column_width=True)
 
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
@@ -60,7 +60,7 @@ cnn_model = keras.models.load_model(os.path.join(script_dir, 'saved_models/cnn.h
 # scaler = joblib.load('./saved_models/standard_scaler.pkl')
 scaler = joblib.load(os.path.join(script_dir, 'saved_models/standard_scaler.pkl'))
 
-run = st.checkbox('Run')
+run = st.checkbox(' 👈 Run')
 FRAME_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
 

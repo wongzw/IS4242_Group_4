@@ -3,4 +3,4 @@
 Install the necessary packages.
 
 To run the app, use command
-<code> streamlit run app.py </code>
+<code> streamlit run App.py </code>
