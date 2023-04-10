@@ -225,7 +225,7 @@ if st.session_state.run is True and captureButton:
     # Capture an image from the camera
     image = capture_image()
     # Display the captured image using st.image
-    st.image(image, channels="RGB")
+    st.image(image, channels="BGR")
 
 
 while st.session_state.run:
