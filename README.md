@@ -8,7 +8,7 @@ Install the necessary packages by run the following command in the terminal
 
 To run the app, use command
 
-`streamlit run frontend/app.py`
+`streamlit run frontend/Home.py`
 
 ## Folders and files
 
