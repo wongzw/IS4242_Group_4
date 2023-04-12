@@ -20,8 +20,6 @@ resized_logo = logo.resize((150, 150))
  
 st.set_page_config(layout="centered")
 st.image(header)
-# st.title("  ✌️Real Time Sign Language Detection 🤟")
-# st.image(resized_logo)
 st.title(" :orange[ Sign Language Alphabets Game] ")
 # models = ["CNN", "SVM", "KNN"]
 # choice = st.selectbox("Select model to use.", models)
@@ -125,7 +123,7 @@ def checkans(frame, current_alphabet):
                 st.session_state['current_alphabet'] = random_alphabet()
               else:
                 st.error("Wrong!")
-                st.write("The letter you gestured is: " + ans + "but the correct letter is: " + current_alphabet)
+                st.write("The letter you gestured is: " + ans + " but the correct letter is: " + current_alphabet.upper())
 
 # Define a function to capture an image from the camera
 def capture_image():
