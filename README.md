@@ -1,21 +1,45 @@
 # IS4242 Group 4
 
-## Installation 
-Install the necessary packages.
+## Installation
+
+Install the necessary packages by run the following command in the terminal
+
+`pip install -r requirements.txt`
 
 To run the app, use command
-<code> streamlit run frontend/app.py </code>
+
+`streamlit run frontend/Home.py`
 
 ## Folders and files
 
-### data
-contains preprocessed data used to train model
+### <b>data</b>
 
-### frontend
-contains files used to run the app
+Contains preprocessed data used to train model
 
-### SVM.ipynb
-SVM model with the use of mediapipe
+### <b> frontend </b>
 
-### SVM_2.ipynb
-SVM model without the use of mediapipe
+Contains files used to run the streamlit application
+
+### <b> Model Development </b>
+
+Contains files used to develop the models used in the streamlit application
+
+#### `cnn.ipynb`
+
+File used to develop CNN model with and without the use of mediapipe
+
+#### `knn_model_mp.ipynb`
+
+File used to develop KNN model with the use of mediapipe
+
+#### `knn_model.ipynb`
+
+File used to develop KNN model without the use of mediapipe
+
+#### `SVM.ipynb`
+
+File used to develop SVM model with the use of mediapipe
+
+#### `SVM_2.ipynb`
+
+File used to develop SVM model without the use of mediapipe
