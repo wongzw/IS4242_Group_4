@@ -1,5 +1,9 @@
 import streamlit as st
 import plotly.graph_objects as go
+from PIL import Image
+import os
+
+st.title(" :orange[ Comparison of different models performances] ")
 
 # Define the data for each graph
 dropdown_data = {
