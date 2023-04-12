@@ -150,9 +150,12 @@ def on_click():
 if run is False:
     camera.release()
 
+def shuffle():
+  st.session_state['current_alphabet'] = random_alphabet()
+
 if run is True:
   captureButton = st.button('Capture Image')
-  shuffleButton = st.button('Shuffle')
+  shuffleButton = st.button('Shuffle', on_click=shuffle)
 
 # Create a button to capture an image from the camera
 if run is True and captureButton :
@@ -161,8 +164,8 @@ if run is True and captureButton :
     # Display the captured image using st.image
     st.image(image, channels="BGR")
 
-if run is True and shuffleButton:
-    st.session_state['current_alphabet'] = random_alphabet()
+# if run is True and shuffleButton:
+#     st.session_state['current_alphabet'] = random_alphabet()
 
 
 if run is True:
