@@ -43,6 +43,9 @@ def random_alphabet():
 if('current_alphabet' not in st.session_state):
   st.session_state['current_alphabet'] = random_alphabet()
 
+if('prev_alphabet' not in st.session_state):
+  st.session_state['prev_alphabet'] = ''
+
 # Initialize mediapipe hand
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
@@ -87,6 +90,7 @@ def process_output(model_name, output):
     return (all_alphabets[np.argmax(output[0], axis=0)]).upper()
 
 def checkans(frame, current_alphabet):
+    st.session_state['prev_alphabet'] = current_alphabet
     x_points = []
     y_points = []
     # _, frame = camera.read()
@@ -169,6 +173,7 @@ if run is True and captureButton :
 
 
 if run is True:
+  st.text("Previous Alphabet: ", st.session_state['prev_alphabet'].upper())
   st.write("🚩 Current Alphabet: ", st.session_state['current_alphabet'].upper())
 
 

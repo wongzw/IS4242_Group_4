@@ -63,8 +63,8 @@ st.text("You can shuffle if the letter is too hard for you.")
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k',
                  'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
-quiz_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-                  'k', 'l', 'm', 'n', 'p', 'q', 'r', 'u', 'v', 'w', 'x', 'y']
+quiz_alphabets = ['a', 'b', 'd', 'e', 'f', 'g', 'h', 'i',
+                  'k', 'l', 'm', 'p', 'q', 'r', 'u', 'v', 'w', 'x', 'y']
 
 def random_alphabet():
     return quiz_alphabets[np.random.randint(
@@ -73,11 +73,18 @@ def random_alphabet():
 if ('current_alphabet' not in st.session_state):
     st.session_state['current_alphabet'] = random_alphabet()
 
+if('prev_alphabet' not in st.session_state):
+    st.session_state['prev_alphabet'] = ''
+
 info_col, button_col = st.columns((2, 1))
 
 # Set camera as False regardless
 if 'run' not in st.session_state:
     st.session_state.run = False
+
+
+if 'button_clicked' not in st.session_state:
+    st.session_state.button_clicked = False
 
 # Helper Functions
 
@@ -141,6 +148,7 @@ def process_output(model_name, output):
 
 
 def checkans(frame, current_alphabet):
+    st.session_state['prev_alphabet'] = current_alphabet
     x_points = []
     y_points = []
     # _, frame = camera.read()
@@ -184,7 +192,7 @@ def checkans(frame, current_alphabet):
 
 def capture_image():
     # camera.release()
-    run = False
+    # run = False
     # Initialize the camera
     cap = cv2.VideoCapture(0)
     # Capture a frame from the camera
@@ -209,7 +217,10 @@ if st.session_state.run is False:
     camera.release()
 
 def shuffle():
+    # if st.session_state.button_clicked:
     st.session_state['current_alphabet'] = random_alphabet()
+        # st.session_state.button_clicked = True
+    print("shuffled! " + st.session_state['current_alphabet'])
 
 if st.session_state.run is True:
     captureButton = options_col.button(
@@ -233,6 +244,7 @@ if st.session_state.run is True and captureButton:
 
 if st.session_state.run is True:
     st.markdown(
+        f"###### Previous Alphabet: {st.session_state['prev_alphabet'].upper()} \n\n"
         f"### 🚩 Current Alphabet: {st.session_state['current_alphabet'].upper()}")
 
 
