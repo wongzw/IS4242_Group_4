@@ -59,8 +59,6 @@ File used to develop SVM model without the use of mediapipe
 We would like to thank Assistant Professor Chenshuo Sun, Ms Phoebe Jia Jia Chua of the National University of Singapore for the opportunity to embark on this project. We would also like to thank the volunteers for providing their time and effort into the creation of our dataset which has provide invaluable to our developmental efforts. 
 
 <sub>
-
 Copyright (C) 2023. This project was created using information collected from publicity available videos and volunteers and was created for educational reasons. Any parts of this project should ONLY be used for NON-COMMERICAL reasons. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses.
-
 </sub>
 
