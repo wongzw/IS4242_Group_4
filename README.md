@@ -1,12 +1,15 @@
 # IS4242 Group 4
 
 ## Project Created By: 
-Hnin Azali - e0424743@u.nus.edu
-Lu Xinyi - e0421231@u.nus.edu
-Melvin Dio Haryadi - e0550457@u.nus.edu
-Putri Darmawan - e0407698@u.nus.edu
-Wang Ziyue - e0415688@u.nus.edu
-Wong Zhou Wai- e0412934@u.nus.edu
+
+| Syntax      | Description |
+| ----------- | ----------- |
+|Hnin Azali  | e0424743@u.nus.edu |
+| Lu Xinyi  | e0421231@u.nus.edu  |
+|Melvin Dio Haryadi  | e0550457@u.nus.edu |
+|Putri Darmawan  | e0407698@u.nus.edu |
+|Wang Ziyue  | e0415688@u.nus.edu |
+|Wong Zhou Wai | e0412934@u.nus.edu |
 
 
 ## Installation
