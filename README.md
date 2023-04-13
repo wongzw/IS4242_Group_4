@@ -2,7 +2,7 @@
 
 ## Project Created By: 
 
-| Syntax      | Description |
+| Name      | Email |
 | ----------- | ----------- |
 |Hnin Azali  | e0424743@u.nus.edu |
 | Lu Xinyi  | e0421231@u.nus.edu  |
