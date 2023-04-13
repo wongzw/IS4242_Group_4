@@ -10,8 +10,6 @@ import mediapipe as mp
 
 st.set_page_config(layout="wide")
 
-
-
 # Load Model
 mphands = mp.solutions.hands
 hand = mphands.Hands(static_image_mode=True, max_num_hands=2,
@@ -48,11 +46,7 @@ resized_logo = logo.resize((150, 150))
 
 
 st.image(header)
-# st.title("  ✌️Real Time Sign Language Detection 🤟")
-# st.image(resized_logo)
 st.title(" :orange[ Sign Language Alphabets Game] ")
-# models = ["CNN", "SVM", "KNN"]
-# choice = st.selectbox("Select model to use.", models)
 choice = "CNN"
 st.subheader("Instructions")
 st.text("This game is to help you learn the Singapore Sign Language alphabets.")
@@ -63,8 +57,8 @@ st.text("You can shuffle if the letter is too hard for you.")
 # all_classes = os.listdir("C:/Users/harsh/Downloads/ASL")
 all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k',
                  'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
-quiz_alphabets = ['a', 'b', 'd', 'e', 'f', 'g', 'h', 'i',
-                  'k', 'l', 'm', 'p', 'q', 'r', 'u', 'v', 'w', 'x', 'y']
+quiz_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k',
+                 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y']
 
 def random_alphabet():
     return quiz_alphabets[np.random.randint(
@@ -115,23 +109,10 @@ camera = cv2.VideoCapture(0)
 
 
 def load_model(model_name):
-    # if(model_name == 'KNN'):
-    #   return knn_model
-    # elif(model_name == 'SVM'):
-    #   return svm_model
-    # else:
     return cnn_model
 
 
 def process_landmarks(model_name, data):
-    # if(model_name == 'KNN'):
-    #   coords = list(np.array([[landmark.x, landmark.y] for landmark in data]).flatten())
-    #   coords = scaler.transform([coords])
-    #   return coords
-    # elif(model_name == 'SVM'):
-    #   coords = [list(np.array([[landmark.x, landmark.y] for landmark in data]).flatten())]
-    #   return coords
-    # else:
     coords = list(np.array([[landmark.x, landmark.y]
                   for landmark in data]).flatten())
     coords = scaler.transform([coords])
@@ -139,11 +120,6 @@ def process_landmarks(model_name, data):
 
 
 def process_output(model_name, output):
-    # if(model_name == 'KNN'):
-    #   return (output[0].upper())
-    # elif(model_name == 'SVM'):
-    #   return (all_alphabets[int(output[0])]).upper()
-    # else:
     return (all_alphabets[np.argmax(output[0], axis=0)]).upper()
 
 
@@ -151,8 +127,6 @@ def checkans(frame, current_alphabet):
     st.session_state['prev_alphabet'] = current_alphabet
     x_points = []
     y_points = []
-    # _, frame = camera.read()
-    # Flip the image horizontally for a later selfie-view display, and convert the BGR image to RGB.
     frame = cv2.flip(frame, 1)
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
@@ -191,20 +165,15 @@ def checkans(frame, current_alphabet):
 # Define a function to capture an image from the camera
 
 def capture_image():
-    # camera.release()
-    # run = False
     # Initialize the camera
     cap = cv2.VideoCapture(0)
     # Capture a frame from the camera
     ret, frame = cap.read()
     # Release the camera
     cap.release()
-
     checkans(frame, st.session_state['current_alphabet'])
     # Return the captured frame
     return frame
-
-# Define a callback function to handle mouse clicks
 
 
 def on_click():
@@ -234,13 +203,6 @@ if st.session_state.run is True and captureButton:
     image = capture_image()
     # Display the captured image using st.image
     st.image(image, channels="BGR")
-
-
-
-# if st.session_state.run is True and shuffleButton:
-#     st.session_state['current_alphabet'] = random_alphabet()
-#     shuffleButton = False
-
 
 if st.session_state.run is True:
     st.markdown(

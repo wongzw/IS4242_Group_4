@@ -1,20 +1,6 @@
-# import streamlit as st
-# from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 import joblib
 from tensorflow import keras
 from PIL import Image
-# #load model, set cache to prevent reloading
-# @st.cache(allow_output_mutation=True)
-# def load_model():
-#     loaded_model = joblib.load('model.joblib')
-#     # model=tf.keras.models.load_model('models/basic_model.h5')
-#     return loaded_model
-
-
-# with st.spinner("Loading Model...."):
-#     model=load_model()
-
-# modelF= keras.models.load_model('rec_0.h5')
 
 import streamlit as st
 import cv2
@@ -26,13 +12,11 @@ mphands = mp.solutions.hands
 hand = mphands.Hands(static_image_mode =True, max_num_hands =2, min_detection_confidence=0.75)
 mpdraw = mp.solutions.drawing_utils
 script_dir = os.path.dirname(__file__)
-# image = Image.open('./assets/legend.jpeg')
 image = Image.open(os.path.join(script_dir, 'assets/legend.jpeg'))
 header = Image.open(os.path.join(script_dir, 'assets/header.png'))
  
 st.set_page_config(layout="centered")
 st.image(header)
-# st.title("  ✌️Real Time Sign Language Detection 🤟")
 st.title(" :orange[ Real Time Sign Language Detection Playground] ")
 models = ["CNN", "SVM", "KNN"]
 choice = st.selectbox("Select model to use.", models)
@@ -48,14 +32,10 @@ all_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n'
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
-# knn_model = joblib.load('./saved_models/knn.joblib')
-# svm_model = joblib.load('./saved_models/svm.joblib')
-# cnn_model = keras.models.load_model('./saved_models/cnn.h5')
 knn_model = joblib.load(os.path.join(script_dir, 'saved_models/knn.joblib'))
 svm_model = joblib.load(os.path.join(script_dir, 'saved_models/svm.joblib'))
 cnn_model = keras.models.load_model(os.path.join(script_dir, 'saved_models/cnn.h5'))
 
-# scaler = joblib.load('./saved_models/standard_scaler.pkl')
 scaler = joblib.load(os.path.join(script_dir, 'saved_models/standard_scaler.pkl'))
 
 run = st.checkbox(' 👈 Run')
@@ -119,14 +99,8 @@ while run:
             target = frame[a1[1]:a1[0], a2[1]:a2[0]]
 
             if len(target) > 0:
-              # print(landmarks.landmark)
-
-              # here switch to different models
-              # coords = [list(np.array([[landmark.x, landmark.y] for landmark in landmarks.landmark]).flatten())]
               coords = process_landmarks(choice, landmarks.landmark)
-              # coords = scaler.transform([coords])
               chosen_model = load_model(choice)
-              # st.write(chosen_model.shape)
               predicted = chosen_model.predict(coords)
               print(predicted)
               
@@ -134,7 +108,6 @@ while run:
               mpdraw.draw_landmarks(frame, landmarks, mphands.HAND_CONNECTIONS)
 
               #Show text predicted
-              # cv2.putText(frame, (all_alphabets[int(predicted[0])]).upper() + " ", (80, 80), cv2.FONT_ITALIC, 2, (255, 100, 100), 2)
               cv2.putText(frame, process_output(choice, predicted), (80, 80), cv2.FONT_ITALIC, 2, (255, 191, 0), 4)
 
 
