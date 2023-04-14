@@ -17,6 +17,7 @@
 |Wang Ziyue  | e0415688@u.nus.edu |
 |Wong Zhou Wai | e0412934@u.nus.edu |
 
+<br>
 
 ## Installation
 
@@ -28,17 +29,27 @@ To run the app, use command
 
 `streamlit run frontend/Playground.py`
 
+---
+<b> Note </b>
+1. Code has been tested on both Windows and Mac with `openCV` version `4.6.0.66`. `Requirements.txt` was build using a windows laptop 
+
+2. `tensorflow-intel` was used in the build. If you are using a Macbook with <b> M1 or M2 chip </b>, you will need to manually install `tensorflow-macos` instead. 
+You may refer to https://caffeinedev.medium.com/how-to-install-tensorflow-on-m1-mac-8e9b91d93706
+
+
+<br>
+
 ## Folders and files
 
 ### <b>data</b>
 
 Contains preprocessed data used to train model
 
-### <b> frontend </b>
+### <b>frontend </b>
 
 Contains files used to run the streamlit application
 
-### <b> Model Development </b>
+### <b>Model Development </b>
 
 Contains files used to develop the models used in the streamlit application
 
@@ -62,6 +73,9 @@ File used to develop SVM model with the use of mediapipe
 
 File used to develop SVM model without the use of mediapipe
 
+
+
+<br>
 
 
 ## Acknowledgements
