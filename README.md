@@ -31,9 +31,9 @@ To run the app, use command
 
 ---
 <b> Note </b>
-1. Code has been tested on both Windows and Mac with `openCV` version `4.6.0.66`. `Requirements.txt` was build using a windows laptop 
+1. Code has been tested on both Windows and Mac with `openCV===4.6.0.66` and `Requirements.txt` was build using a windows laptop 
 
-2. `tensorflow-intel` was used in the build. If you are using a Macbook with <b> M1 or M2 chip </b>, you will need to manually install `tensorflow-macos` instead. 
+2. `tensorflow-intel` was used in this build. If you are using a Macbook with <b> M1 or M2 chip </b>, you will need to manually install `tensorflow-macos` instead. 
 You may refer to https://caffeinedev.medium.com/how-to-install-tensorflow-on-m1-mac-8e9b91d93706
 
 3. Application's capture function utilises `openCV` capture feature and speed of capture is <b> heavily dependent </b> on your laptop's processing speed. 
