@@ -1,6 +1,6 @@
 # IS4242 Group 4
 
-<img src="/frontend/assets/signlingo-header.png", width="600" height="300">
+![Signlingo-Header](https://raw.githubusercontent.com/wongzw/IS4242_Group_4/master/frontend/assets/signlingo-header.png)
 
 
 ## Project Created By: 
