@@ -1,14 +1,17 @@
-# IS4242 Group 4
+<div align="center">
+  <a>
+    <img src="frontend/assets/signlingo-header.png" alt="Signlingo-Header">
+  </a>
+  <h3 align="center">Singlingo - Duolingo for SgSL </h3>
+  <h3> Made by IS4242 Group 4  </h3>
+</div>
 
-![Signlingo-Header](https://raw.githubusercontent.com/wongzw/IS4242_Group_4/master/frontend/assets/signlingo-header.png)
-
-
-## Project Created By: 
+## Members 
 
 | Name      | Email |
 | ----------- | ----------- |
 |Hnin Azali  | e0424743@u.nus.edu |
-| Lu Xinyi  | e0421231@u.nus.edu  |
+|Lu Xinyi  | e0421231@u.nus.edu  |
 |Melvin Dio Haryadi  | e0550457@u.nus.edu |
 |Putri Darmawan  | e0407698@u.nus.edu |
 |Wang Ziyue  | e0415688@u.nus.edu |
@@ -17,7 +20,7 @@
 
 ## Installation
 
-Install the necessary packages by run the following command in the terminal
+Install the necessary packages by running the following command in the terminal
 
 `pip install -r requirements.txt`
 
