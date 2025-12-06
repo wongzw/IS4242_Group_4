@@ -98,6 +98,6 @@ tzlocal==4.3
 urllib3==1.26.15
 validators==0.20.0
 watchdog==3.0.0
-Werkzeug==2.2.3
+Werkzeug==3.1.4
 wrapt==1.14.1
 zipp==3.15.0
